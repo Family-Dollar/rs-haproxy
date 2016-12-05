@@ -169,6 +169,8 @@ cookbook_file '/etc/logrotate.d/haproxy' do
   action :create
 end
 
+# logrotate-haproxy-familydollar.conf needs to check more regularly than daily.  This sets logrotate to run hourly by copying cron.daily/logrotate -> cron.hourly/logrotate
+# Added 2016-12-05 for ZD Ticket #118267
 file "/etc/cron.hourly/logrotate" do
   owner 'root'
   group 'root'
