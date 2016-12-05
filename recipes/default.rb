@@ -169,6 +169,14 @@ cookbook_file '/etc/logrotate.d/haproxy' do
   action :create
 end
 
+file "/etc/cron.hourly/logrotate" do
+  owner 'root'
+  group 'root'
+  mode 0644
+  content ::File.open("/etc/cron.daily/logrotate").read
+  action :create
+end
+
 Chef::Log.info node['haproxy']['config']
 haproxy_config = Mash.new(
 'global' => {
