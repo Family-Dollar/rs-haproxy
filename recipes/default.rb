@@ -160,8 +160,8 @@ cookbook_file '/etc/rsyslog.d/10-haproxy.conf' do
   notifies :restart, 'service[rsyslog]'
 end
 
-cookbook_file '/etc/logrotate.d/logrotate' do
-  source 'logrotate-haproxy.conf'
+cookbook_file '/etc/logrotate.d/haproxy' do
+  source 'logrotate-haproxy-familydollar.conf'
   backup 0
   mode 0644
   owner 'root'
