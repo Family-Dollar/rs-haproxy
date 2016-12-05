@@ -23,8 +23,8 @@ describe 'rs-haproxy::default' do
     end
 
     it 'creates logrotate file' do
-      expect(chef_run).to create_cookbook_file('/etc/logrotate.d/logrotate').with(
-          source: 'logrotate-haproxy.conf',
+      expect(chef_run).to create_cookbook_file('/etc/logrotate.d/haproxy').with(
+          source: 'logrotate-haproxy-familydollar.conf',
           backup: 0,
           mode: 0644,
           owner: 'root',
