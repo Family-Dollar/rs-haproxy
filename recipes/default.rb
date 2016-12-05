@@ -174,7 +174,7 @@ end
 file "/etc/cron.hourly/logrotate" do
   owner 'root'
   group 'root'
-  mode 0644
+  mode 0777
   content ::File.open("/etc/cron.daily/logrotate").read
   action :create
 end
