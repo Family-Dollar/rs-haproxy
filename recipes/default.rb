@@ -143,7 +143,7 @@ if node['haproxy']['httpchk']
 end
 
 if node['rs-haproxy']['session_stickiness']
-  node.default['haproxy']['config']['defaults']['cookie'] = 'SERVERID insert indirect nocache'
+  node.default['haproxy']['config']['defaults']['cookie'] = 'SERVERID nocache'
 end
 
 # Confirm that rsyslog is installed.
