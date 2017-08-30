@@ -89,3 +89,7 @@ default['haproxy']['source']['use_zlib'] = true
 
 # HAproxy haproxy config defaults options 
 default['haproxy']['config']['defaults']['http-check expect'] = []
+
+# Haproxy compression
+default['rs-haproxy']['enable_compression'] = true
+default['rs-haproxy']['compression_types'] = 'text/html text/plain text/css application/javascript application/json'

@@ -146,6 +146,12 @@ if node['rs-haproxy']['session_stickiness']
   node.default['haproxy']['config']['defaults']['cookie'] = 'SERVERID insert indirect nocache'
 end
 
+# Enable compression algorithm and type
+if node['rs-haproxy']['enable_compression']
+  node.default['haproxy']['config']['defaults']['compression']['algo'] = 'gzip'
+  node.default['haproxy']['config']['defaults']['compression']['type'] = node['rs-haproxy']['compression_types']
+end
+
 # Confirm that rsyslog is installed.
 include_recipe 'rs-base::rsyslog'
 
